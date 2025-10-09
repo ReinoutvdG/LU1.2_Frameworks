@@ -1,0 +1,20 @@
+{
+  "name": "lu1.2_frameworks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReinoutvdG/LU1.2_Frameworks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReinoutvdG/LU1.2_Frameworks/issues"
+  },
+  "homepage": "https://github.com/ReinoutvdG/LU1.2_Frameworks#readme"
+}
