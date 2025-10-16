@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
-  },
+  "dev": "tsx watch src/index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js"
+},
   "nodemonConfig": {
     "watch": [
       "src"
@@ -31,6 +31,7 @@
     "@types/node": "^24.7.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }
 }

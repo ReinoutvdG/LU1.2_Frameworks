@@ -1,18 +1,15 @@
-import express from "express";
+// src/index.ts
 import dotenv from "dotenv";
-import mongoose from "mongoose";
-
-
+import { createServer } from "./server.js"; // let op: .js als je transpileert naar JS
 dotenv.config();
-const app = express();
-
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Backend draait");
-});
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server draait op poort ${PORT}`);
-});
+
+const start = async () => {
+  const app = await createServer(); // ⬅️ dit komt uit server.ts
+  app.listen(PORT, () => {
+    console.log(`✅ Server draait op poort ${PORT}`);
+  });
+};
+
+start();
