@@ -16,5 +16,7 @@
   "bugs": {
     "url": "https://github.com/ReinoutvdG/LU1.2_Frameworks/issues"
   },
-  "homepage": "https://github.com/ReinoutvdG/LU1.2_Frameworks#readme"
+  "homepage": "https://github.com/ReinoutvdG/LU1.2_Frameworks#readme",
+  "dependencies": {
+  }
 }
