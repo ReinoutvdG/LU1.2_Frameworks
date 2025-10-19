@@ -18,6 +18,7 @@ router.get("/:id", async (req, res) => {
 
 // POST create new course
 router.post("/", async (req, res) => {
+    console.log("Ontvangen body:", req.body); // 👈 debuglijn
   try {
     const newCourse = await CourseService.create(req.body);
     res.status(201).json(newCourse);

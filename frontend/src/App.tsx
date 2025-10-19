@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Navbar from "./components/Navbar"; 
+import Navbar from "./components/Navbar";
 import ModuleList from "./components/ModuleList";
 import ModuleForm, { type Module } from "./components/ModuleForm";
-
+import CourseList from "./components/CourseList";
 
 function App() {
-  const [page, setPage] = useState<"list" | "form">("list");
+  const [page, setPage] = useState<"modules" | "form" | "courses">("modules");
   const [editing, setEditing] = useState<Module | null>(null);
 
   const handleSave = async (data: Module) => {
@@ -24,13 +24,17 @@ function App() {
     }
 
     setEditing(null);
-    setPage("list");
+    setPage("modules");
   };
 
   return (
     <>
-      <Navbar /> 
-      {page === "list" ? (
+      <Navbar
+        currentPage={page === "courses" ? "courses" : "modules"}
+        onNavigate={(p) => setPage(p)}
+      />
+
+      {page === "modules" ? (
         <ModuleList
           onAdd={() => {
             setEditing(null);
@@ -41,12 +45,14 @@ function App() {
             setPage("form");
           }}
         />
-      ) : (
+      ) : page === "form" ? (
         <ModuleForm
           existingModule={editing || undefined}
           onSave={handleSave}
-          onCancel={() => setPage("list")}
+          onCancel={() => setPage("modules")}
         />
+      ) : (
+        <CourseList />
       )}
     </>
   );

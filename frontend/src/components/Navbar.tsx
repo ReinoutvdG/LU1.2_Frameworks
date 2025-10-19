@@ -1,32 +1,39 @@
 // src/components/Navbar.tsx
 import React from "react";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  currentPage: string;
+  onNavigate: (page: "modules" | "courses") => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
         <a className="navbar-brand" href="#">
-          Mijn Modules
+          Mijn Dashboard
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link active" href="#">
-                Overzicht
-              </a>
+              <button
+                className={`btn nav-link ${
+                  currentPage === "modules" ? "active" : ""
+                }`}
+                onClick={() => onNavigate("modules")}
+              >
+                Modules
+              </button>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Info
-              </a>
+              <button
+                className={`btn nav-link ${
+                  currentPage === "courses" ? "active" : ""
+                }`}
+                onClick={() => onNavigate("courses")}
+              >
+                Courses
+              </button>
             </li>
           </ul>
         </div>
