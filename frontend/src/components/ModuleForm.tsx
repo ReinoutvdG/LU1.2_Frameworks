@@ -56,6 +56,7 @@ const ModuleForm: React.FC<ModuleFormProps> = ({ existingModule, onSave, onCance
         <div className="mb-3">
           <label className="form-label">Beschrijving</label>
           <input
+            data-testid="description"
             className="form-control"
             name="description"
             value={formData.description}
