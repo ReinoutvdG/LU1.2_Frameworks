@@ -1,3 +1,4 @@
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -17,16 +18,19 @@ export const createServer = async () => {
     origin: "http://localhost:5173", // de frontend-URL
   }));
 
-  // basis route
-  app.get("/", (req, res) => {
-    res.send("✅ Backend draait");
-  });
-
   // module routes
   app.use("/api/modules", moduleRouter);
 
   // courses route
   app.use("/api/courses", courseRouter);
+
+    const __dirname = path.resolve();
+  app.use(express.static(path.join(__dirname, "public")));
+
+  //alle onbekende routes naar index.html
+  app.get(/.*/, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  });
 
   return app;
 };
