@@ -87,8 +87,6 @@ const ModuleList: React.FC<ModuleListProps> = ({ onAdd, onEdit }) => {
             onChange={(e) => setFilterEC(e.target.value)}
           >
             <option value="">Filter op EC</option>
-            <option value="5">5 EC</option>
-            <option value="10">10 EC</option>
             <option value="15">15 EC</option>
             <option value="30">30 EC</option>
           </select>
